@@ -1,0 +1,24 @@
+{
+  "name": "platzigram",
+  "version": "0.1.0",
+  "description": "Comparte fotografias entre usuarios",
+  "main": "server.js",
+  "keywords": [
+    "platzi",
+    "javascript",
+    "curso-definitivo",
+    "platzigram"
+  ],
+  "author": "ivanrojo07",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.2",
+    "materialize-css": "^0.98.2",
+    "pug": "^2.0.0-beta.12"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0"
+  }
+}
