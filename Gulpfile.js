@@ -15,49 +15,39 @@ gulp.task('styles', function () {
 })
 
 gulp.task('assets', function () {
-	gulp
-		.src('assets/*')
-		.pipe(gulp.dest('public'));
+  gulp
+    .src('assets/*')
+    .pipe(gulp.dest('public'));
 })
 
+function compile(watch) {
+  var bundle = watchify(browserify('./src/index.js', {debug: true}));
 
+  function rebundle() {
+    bundle
+      .transform(babel)
+      .bundle()
+      .pipe(source('index.js'))
+      .pipe(rename('app.js'))
+      .pipe(gulp.dest('public'));
+  }
 
+  if (watch) {
+    bundle.on('update', function () {
+      console.log('--> Bundling...');
+      rebundle();
+    });
+  }
 
-
-function compile(watch){
-	var bundle = watchify(browserify('./src/index.js', {debug: true}));
-
-	function rebundle() {
-		bundle
-		.transform(babel)
-		.bundle()
-		.pipe(source('index.js'))
-		.pipe(rename('app.js'))
-		.pipe(gulp.dest('public'));
-	}
-
-	if (watch){
-		bundle.on('update', function() {
-			console.log('--> Bundling...');
-			rebundle();
-		});
-	}//sigue escuchando
-
-	rebundle();
+  rebundle();
 }
 
-//gulp.task('scripts', function() {
-//	.transform(babel)
-//	.bundle()
-//	.pipe(source('index.js'))
-//	.pipe(rename('app.js'))
-//	.pipe(gulp.dest('public'));
-//})
-
-gulp.task('build', function() { 
-	return compile();
+gulp.task('build', function () {
+  return compile();
 });
 
-gulp.task('watch', function() { return compile(true); });
+gulp.task('watch', function () { return compile(true); });
 
 gulp.task('default', ['styles', 'assets', 'build']);
+
+

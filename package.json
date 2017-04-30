@@ -12,10 +12,12 @@
   "author": "ivanrojo07",
   "license": "MIT",
   "dependencies": {
+    "empty-element": "^1.0.0",
     "express": "^4.15.2",
     "materialize-css": "^0.98.2",
     "page": "^1.7.1",
-    "pug": "^2.0.0-beta.12"
+    "pug": "^2.0.0-beta.12",
+    "yo-yo": "^1.4.0"
   },
   "devDependencies": {
     "babelify": "^7.3.0",
@@ -28,6 +30,6 @@
   },
   "scripts": {
     "build": "gulp",
-    "start": "node server.js & gulp watch"
+    "start": "gulp watch & node server.js"
   }
 }
