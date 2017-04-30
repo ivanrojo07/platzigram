@@ -14,6 +14,19 @@ app.get('/', function(req, res)
 })
 //definir una ruta, 
 
+app.get('/signup', function(req, res)
+{
+	res.render('index');
+})
+//definir una ruta, 
+
+app.get('/signin', function(req, res)
+{
+	res.render('index');
+})
+//definir una ruta, 
+
+
 app.listen(3000, function(err)
 {
 	if(err)return console.log('Hubo un error'), process.exit(1);
