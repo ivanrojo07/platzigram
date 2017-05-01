@@ -10,19 +10,19 @@ app.use(express.static('public'));
 //cualquier usuario puede accedera ella
 app.get('/', function(req, res)
 {
-	res.render('index');
+	res.render('index', { title: 'Platzigram' });
 })
 //definir una ruta, 
 
 app.get('/signup', function(req, res)
 {
-	res.render('index');
+	res.render('index', { title: 'Platzigram - Signup' });
 })
 //definir una ruta, 
 
 app.get('/signin', function(req, res)
 {
-	res.render('index');
+	res.render('index', { title: 'Platzigram - Signin' });
 })
 //definir una ruta, 
 
