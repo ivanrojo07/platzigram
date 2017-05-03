@@ -4,5 +4,5 @@ var translate = require('../translate');
 module.exports = function layout(content) {
   return yo`<div class="content">
       ${content}
-      </div>`;
+    </div>`;
 }

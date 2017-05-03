@@ -1,8 +1,8 @@
 var yo = require('yo-yo');
 var translate = require('../translate');
 var empty = require('empty-element');
-var el = yo`<div>
-    <nav class="header">
+
+var el = yo`<nav class="header">
       <div class="nav-wrapper">
         <div class="container">
           <div class="row">
@@ -20,15 +20,11 @@ var el = yo`<div>
           </div>
         </div>
       </div>
-    </nav>
-    <div class="content">
-      ${content}
-    </div>
-  </div>`;
+    </nav>`;
 
 module.exports = function header (ctx, next) {
   var container = document.getElementById('header-container')
   empty(container).appendChild(el);
   next();
-  
 }
+
