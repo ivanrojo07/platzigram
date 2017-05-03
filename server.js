@@ -22,8 +22,8 @@ app.get('/api/pictures', function (req, res, next) {
   var pictures = [
     {
       user: {
-        username: 'slifszyc',
-        avatar: 'https://scontent-atl3-1.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/11031148_10153448564292612_2579019413701631604_n.jpg?oh=d83cdd0687c87c91b247a42375fc5a57&oe=57B12767'
+        username: 'ivanrojo07',
+        avatar: 'https://scontent.fmex2-1.fna.fbcdn.net/v/t31.0-8/s960x960/18216488_10211111333132215_5855043206715828785_o.jpg?oh=53c005bb77e5668d37441d304f750738&oe=5984B8A1'
       },
       url: 'office.jpg',
       likes: 0,
@@ -32,8 +32,8 @@ app.get('/api/pictures', function (req, res, next) {
     },
     {
       user: {
-        username: 'slifszyc',
-        avatar: 'https://scontent-atl3-1.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/11031148_10153448564292612_2579019413701631604_n.jpg?oh=d83cdd0687c87c91b247a42375fc5a57&oe=57B12767'
+        username: 'ivanrojo07',
+        avatar: 'https://scontent.fmex2-1.fna.fbcdn.net/v/t31.0-8/s960x960/18216488_10211111333132215_5855043206715828785_o.jpg?oh=53c005bb77e5668d37441d304f750738&oe=5984B8A1'
       },
       url: 'office.jpg',
       likes: 1,
