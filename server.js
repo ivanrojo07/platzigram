@@ -1,4 +1,17 @@
 var express = require('express');
+var multer  = require('multer');
+var ext = require('file-extension');
+
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './uploads')
+  },
+  filename: function (req, file, cb) {
+    cb(null, +Date.now() + '.' + ext(file.originalname))
+  }
+})
+ 
+var upload = multer({ storage: storage }).single('picture');
 
 var app = express();
 
@@ -22,8 +35,8 @@ app.get('/api/pictures', function (req, res, next) {
   var pictures = [
     {
       user: {
-        username: 'ivanrojo07',
-        avatar: 'https://scontent.fmex2-1.fna.fbcdn.net/v/t31.0-8/s960x960/18216488_10211111333132215_5855043206715828785_o.jpg?oh=53c005bb77e5668d37441d304f750738&oe=5984B8A1'
+        username: 'slifszyc',
+        avatar: 'https://scontent-atl3-1.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/11031148_10153448564292612_2579019413701631604_n.jpg?oh=d83cdd0687c87c91b247a42375fc5a57&oe=57B12767'
       },
       url: 'office.jpg',
       likes: 0,
@@ -32,8 +45,8 @@ app.get('/api/pictures', function (req, res, next) {
     },
     {
       user: {
-        username: 'ivanrojo07',
-        avatar: 'https://scontent.fmex2-1.fna.fbcdn.net/v/t31.0-8/s960x960/18216488_10211111333132215_5855043206715828785_o.jpg?oh=53c005bb77e5668d37441d304f750738&oe=5984B8A1'
+        username: 'slifszyc',
+        avatar: 'https://scontent-atl3-1.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/11031148_10153448564292612_2579019413701631604_n.jpg?oh=d83cdd0687c87c91b247a42375fc5a57&oe=57B12767'
       },
       url: 'office.jpg',
       likes: 1,
@@ -45,6 +58,15 @@ app.get('/api/pictures', function (req, res, next) {
   setTimeout(function () {
     res.send(pictures);  
   }, 2000)
+});
+
+app.post('/api/pictures', function (req, res) {
+  upload(req, res, function (err) {
+    if (err) {
+      return res.send(500, "Error uploading file");
+    }
+    res.send('File uploaded');
+  })
 })
 
 app.listen(3000, function (err) {
